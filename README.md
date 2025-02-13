@@ -1,8 +1,10 @@
-![heart](https://github.com/user-attachments/assets/f0c91918-60bf-4130-a0e5-c473b6071378)
+
 
 IMDM 290 
 
+
+https://github.com/user-attachments/assets/cd122de8-df35-4181-a2c0-285c25213983
+
+
 2025 Spring
 
-Course Material 
-![Untitled video - Made with Clipchamp (8)](https://github.com/user-attachments/assets/f862236a-a226-4e8f-8bfd-47c7161032da)

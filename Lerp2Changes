@@ -1,0 +1,69 @@
+// UMD IMDM290 
+// Instructor: Myungin Lee
+    // [a <-----------> b]
+    // Lerp : Linearly interpolates between two points. 
+    // https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Vector3.Lerp.html
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Lerp2 : MonoBehaviour
+{
+    LineRenderer[] lineRenderer;
+    static int numSphere = 500; 
+    float time = 0f;
+    Vector3[] initPos;
+    Vector3[] startPosition, endPosition;
+    float lerpFraction; // Lerp point between 0~1
+    float t;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Assign proper types and sizes to the variables.
+        lineRenderer = new LineRenderer[numSphere];
+        initPos = new Vector3[numSphere]; // Start positions
+        startPosition = new Vector3[numSphere]; 
+        endPosition = new Vector3[numSphere]; 
+        
+        // Define target positions. Start = random, End = heart 
+        for (int i =0; i < numSphere; i++){
+            // Random start positions
+            float r = 25f;
+            startPosition[i] = new Vector3(r * Random.Range(-1f, 1f), r * Random.Range(-1f, 1f), r * Random.Range(-1f, 1f));        
+            // Heart shape end position
+            t = i* 2 * Mathf.PI / numSphere;
+            endPosition[i] = new Vector3( 
+                        5f*Mathf.Sqrt(2f) * Mathf.Sin(t) *  Mathf.Sin(t) *  Mathf.Sin(t),
+                        5f* (- Mathf.Cos(t) * Mathf.Cos(t) * Mathf.Cos(t) - Mathf.Cos(t) * Mathf.Cos(t) + 2 *Mathf.Cos(t)) + 3f,
+                        10f + Mathf.Sin(time));
+        }
+        // Let there be spheres..
+        for (int i =0; i < numSphere; i++){
+            float r = 10f; // radius of the circle
+            // Position
+            initPos[i] = startPosition[i];
+            // Color
+        
+        }
+        // Line
+        for (int i = 1; i < numSphere; i++){
+            //For creating line renderer object
+            lineRenderer[i] = new GameObject("Line").AddComponent<LineRenderer>();
+            lineRenderer[i].material = new Material(Shader.Find("Sprites/Default"));
+            // lineRenderer[i].startColor = Color.HSVToRGB(Random.Range(0.7f, 1f), Random.Range(0.8f, 1f), Random.Range(0f, 1f));
+            lineRenderer[i].endColor = Color.HSVToRGB(Random.Range(0.8f, 1f), Random.Range(0.8f, 0.94f), Random.Range(3f, 5f));
+             lineRenderer[i].startColor = Color.HSVToRGB(Random.Range(0.7f, 1f), Random.Range(0.8f, 1f), Random.Range(0f, 1f));
+            lineRenderer[i].endColor = Color.HSVToRGB(Random.Range(23f, 1f), Random.Range(0.8f, 0.94f), Random.Range(3f, 5f));
+            // lineRenderer[i].startWidth = 0.3f;
+            // lineRenderer[i].endWidth = 0.4f;
+            // lineRenderer[i].positionCount = 2;
+            // lineRenderer[i].useWorldSpace = true;    
+             lineRenderer[i].endWidth = 0.4f;
+             lineRenderer[i].positionCount = 2;
+             lineRenderer[i].useWorldSpace = true;    
+                            
+            //For drawing line in the world space, provide the x,y,z values
+            lineRenderer[i].SetPosition(0, initPos[i]); //x,y and z position of the starting point of the line
+

@@ -31,6 +31,7 @@ public class AudioSpectrumPlot : MonoBehaviour
             if (sampleBin != null)
             {
                 sampleBin[i].transform.localScale = new Vector3(0.1f, AudioSpectrum.samples[i] * scale * scale, 0.1f);
+                //sampleBin[i].GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f);
                 sampleBin[i].GetComponent<Renderer>().material.color = new Color(0.3f + i / 10f, 0.1f + i / 30f, 1+ i / 500f);
                 sampleBin[i].transform.position = new Vector3(scale * Mathf.Sin((float)i / 100f) + AudioSpectrum.samples[i] * scale * scale, 0, scale * Mathf.Cos((float)i / 100f) + AudioSpectrum.samples[i] * scale * scale);
                 sampleBin[i].transform.Rotate(AudioSpectrum.samples[i], 0f, Mathf.Sin(AudioSpectrum.samples[i]) * AudioSpectrum.samples[i] * scale * scale);

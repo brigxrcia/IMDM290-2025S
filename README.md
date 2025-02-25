@@ -1,10 +1,6 @@
+IMDM290 - Assignment #3 Briyette G & Pearl C
 
+https://drive.google.com/file/d/1EHd3RwrhkCwbuG1AC96gnC986o9Gfday/view?usp=drive_link
 
-IMDM 290 
-
-
-https://github.com/user-attachments/assets/cd122de8-df35-4181-a2c0-285c25213983
-
-
-2025 Spring
+Spring 2025
 
